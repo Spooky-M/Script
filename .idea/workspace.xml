@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a1e8598-304b-4e4b-ab32-d38e1d043c43" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="PPProjekt" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/tools/graudit" />
+  </component>
+  <component name="ProjectId" id="1VNKmLgmZ5tZfCKO8ck6q9KHytm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.script">
+    <configuration name="kul" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PPProjekt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kul.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="proba" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PPProjekt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proba.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="script" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PPProjekt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script.py" />
+      <option name="PARAMETERS" value="-t spotbugs,checkstyle,graudit,pmd,cpd -c $USER_HOME$/Documents/Projekt/reports/Fajlovi/auxclasspathFromFile -p jakhar.aseem.diva.* $USER_HOME$/Documents/Projekt/diva-android/" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.kul" />
+      <item itemvalue="Python.proba" />
+      <item itemvalue="Python.script" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.script" />
+        <item itemvalue="Python.proba" />
+        <item itemvalue="Python.kul" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a1e8598-304b-4e4b-ab32-d38e1d043c43" name="Default Changelist" comment="" />
+      <created>1577088270954</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577088270954</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="588" y="214" width="800" height="677" key="#Inspections" timestamp="1578490664460">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="214" width="800" height="677" key="#Inspections/67.27.1853.1053@67.27.1853.1053" timestamp="1578490664460" />
+    <state x="368" y="279" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578923194603">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="368" y="279" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578923194603" />
+    <state x="674" y="358" width="629" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578920405197">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="674" y="358" width="629" height="388" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578920405197" />
+    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1578493918441">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578493918441" />
+    <state x="751" y="258" key="#xdebugger.evaluate" timestamp="1578400591588">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="751" y="258" key="#xdebugger.evaluate/67.27.1853.1053@67.27.1853.1053" timestamp="1578400591588" />
+    <state width="1831" height="345" key="GridCell.Tab.0.bottom" timestamp="1578923841795">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841795" />
+    <state width="1831" height="345" key="GridCell.Tab.0.center" timestamp="1578923841793">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841793" />
+    <state width="1831" height="345" key="GridCell.Tab.0.left" timestamp="1578923841792">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841792" />
+    <state width="1831" height="345" key="GridCell.Tab.0.right" timestamp="1578923841794">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841794" />
+    <state width="1831" height="345" key="GridCell.Tab.1.bottom" timestamp="1578923841798">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841798" />
+    <state width="1831" height="345" key="GridCell.Tab.1.center" timestamp="1578923841796">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841796" />
+    <state width="1831" height="345" key="GridCell.Tab.1.left" timestamp="1578923841795">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841795" />
+    <state width="1831" height="345" key="GridCell.Tab.1.right" timestamp="1578923841797">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1831" height="345" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578923841797" />
+    <state x="490" y="186" width="1007" height="731" key="SettingsEditor" timestamp="1578915543035">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="490" y="186" width="1007" height="731" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1578915543035" />
+    <state x="664" y="380" width="656" height="345" key="com.intellij.ide.util.TipDialog" timestamp="1578917377486">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="664" y="380" width="656" height="345" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578917377486" />
+    <state x="661" y="156" width="664" height="792" key="find.popup" timestamp="1577109865751">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="661" y="156" width="664" height="792" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1577109865751" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1578491466293">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578491466293" />
+  </component>
+</project>
