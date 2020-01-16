@@ -1,9 +1,10 @@
-******************
-Not yet functional:
--usage of any spotbugs tool except the "spotbugs" (newest version)
--analysis of a single java file
-******************
-
+**********************************************
+ Find out more about tools:
+    spotbugs: https://spotbugs.readthedocs.io/en/latest/
+    pmd and cpd: https://pmd.github.io/
+    graudit: https://github.com/wireghoul/graudit/
+    checkstyle: https://checkstyle.org/
+**********************************************
 usage: python3 script.py [-t] [options] <file>
     
     Must be run from directory which contains script.py. The script usually runs up to several minutes. Spotbugs is a
@@ -21,6 +22,7 @@ usage: python3 script.py [-t] [options] <file>
         cpd
         graudit
         checkstyle
+
 
     Following options should be provided when running specific tools while analysing a project:
         spotbugs (all versions):
@@ -60,7 +62,7 @@ usage: python3 script.py [-t] [options] <file>
     
     examples of running the script:
         python3 script.py spotbugs,spotbugs-3.1.0-RC7,pmd,cpd -c /home/userx/Documents/auxclasspathFromFile -p my.app.package /home/userx/Documents/Project
-        python3 script.py graudit home/userx/Documents/file.java
+        python3 script.py graudit home/userx/Documents/Project/app/src/java/main/package/file.java
         
     auxClasspathFromFile example:
         /snap/android-studio/81/android-studio/
@@ -68,6 +70,6 @@ usage: python3 script.py [-t] [options] <file>
         
     For help run the script with -h option, and for list of all available tools run with -l.
     
-    13.1.2020.
+    16.1.2020.
     FER (Fakultet elektrotehnike i računarstva), Zagreb
     Antonio Špoljar, mentor Stjepan Groš

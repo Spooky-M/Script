@@ -1,6 +1,6 @@
 from typing import Set
 
-with open("README", "r") as r:
+with open("README.md", "r") as r:
     HELP: str = r.read()
 HELP_ARG = "-h"
 LIST_ARG = "-l"

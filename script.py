@@ -86,8 +86,17 @@ def main(argv):
         print("\nThere was no -c argument.\nFor help read README file or run the script with -h option")
         sys.exit(1)
 
-    # edit project_path, if the path is only a single Java file, go to single_java_file function
-    if directory:
+    if os.path.isfile(project_path):
+        if not project_path.endswith(".java"):
+            print("Incorrect arguments.\nArgument for analysing can only be java file or a root directory" +
+                  " of Android Studio project")
+            sys.exit(1)
+        directory = False
+        single_java_file(aux_classpath_from_file_path, c_tool, tools, project_path, scores)
+        return
+    elif os.path.isdir(project_path):
+
+        # edit project_path, if the path is only a single Java file, go to single_java_file function
         if not project_path.endswith("/"):
             project_path += "/"
         project_path_appsrc = project_path + "app/src/"
@@ -95,13 +104,9 @@ def main(argv):
         if package.find("*"):
             new_package = new_package[0:new_package.__len__()-1]
         project_path_package = project_path_appsrc + "main/java/ " + new_package.replace(".", "/")
+        directory = True
     else:
-        if not project_path.endswith(".java"):
-            print("Incorrect arguments.\nArgument for analysing can only be java file or a root directory" +
-                  " of Android Studio project")
-            sys.exit(1)
-        single_java_file(aux_classpath_from_file_path, c_tool, tools, project_path, scores)
-        return
+        raise OSError
 
     # run selected tools
     for t in tools:
@@ -123,8 +128,6 @@ def main(argv):
             process.wait()
             f1.close()
 
-            scores[t] = calculate_score_spotbugs(get_report_path(t))
-
         elif t == PMD:
             f2: TextIO = open(PMD_REPORT_PATH, "w+")
             file = open(aux_classpath_from_file_path, "r")
@@ -143,8 +146,6 @@ def main(argv):
             process.wait()
             f2.close()
 
-            scores[t] = calculate_score_pmd(get_report_path(t))
-
         elif t == CPD:
             f3: TextIO = open(CPD_REPORT_PATH, "w+")
 
@@ -162,8 +163,6 @@ def main(argv):
             process.wait()
             f4.close()
 
-            scores[t] = calculate_score_graudit(get_report_path(t))
-
         elif t == CHECKSTYLE:
             f5: TextIO = open(CHECKSTYLE_REPORT_PATH, "w+")
 
@@ -180,10 +179,12 @@ def main(argv):
                 if stop: break
             f5.close()
 
-            scores[t] = calculate_score_checkstyle(get_report_path(t))
+    scores = calculate_scores(tools)
 
+    # print scores
     for i in scores:
         print(i, scores[i])
+
     # generate html report
     generate_html(tools, scores)
 
@@ -194,10 +195,13 @@ def single_java_file(aux_classpath_from_file_path: str, c_tool: bool, tools: Set
     """
     Function for running tools if target is a single Java file.
     """
+
+    # check if all the parameters are provided
     if aux_classpath_from_file_path is None and c_tool:
         print("\nThere was no -c argument.\nFor help read README file or run the script with -h option")
         sys.exit(1)
 
+    # run selected tools
     for t in tools:
         if t in (SPOTBUGS_4_0_0_BETA4, SPOTBUGS_4_0_0_BETA3, SPOTBUGS_4_0_0_BETA2, SPOTBUGS_4_0_0_BETA1,
                  SPOTBUGS_3_1_12, SPOTBUGS_3_1_0_RC7, SPOTBUGS):
@@ -206,15 +210,15 @@ def single_java_file(aux_classpath_from_file_path: str, c_tool: bool, tools: Set
 
             f1: TextIO = open("./reports/" + t, "w+")
 
-            run = "bash ./tools/SpotBugs/spotbugs-4.0.0-beta4/bin/spotbugs -textui -home ./tools/SpotBugs/ " +\
-                  "-workHard -longBugCodes -output " + get_report_path(t) + " -auxclasspathFromFile " +\
+            sourcepath = "-sourcepath " + project_path[:project_path.rfind("app")]
+            sourcepath += " -home ./tools/SpotBugs/"
+            run = "bash ./tools/SpotBugs/spotbugs-4.0.0-beta4/bin/spotbugs -textui -home ./tools/SpotBugs/ " + \
+                  sourcepath + "-workHard -longBugCodes -output " + get_report_path(t) + " -auxclasspathFromFile " + \
                   aux_classpath_from_file_path + " " + project_path
 
             process = subprocess.Popen(run, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             process.wait()
             f1.close()
-
-            calculate_score_spotbugs(get_report_path(t))
 
         elif t == PMD:
             f2: TextIO = open(PMD_REPORT_PATH, "w+")
@@ -234,8 +238,6 @@ def single_java_file(aux_classpath_from_file_path: str, c_tool: bool, tools: Set
             process.wait()
             f2.close()
 
-            calculate_score_pmd(get_report_path(t))
-
         elif t == CPD:
             f3: TextIO = open(CPD_REPORT_PATH, "w+")
 
@@ -253,8 +255,6 @@ def single_java_file(aux_classpath_from_file_path: str, c_tool: bool, tools: Set
             process.wait()
             f4.close()
 
-            calculate_score_graudit(get_report_path(t))
-
         elif t == CHECKSTYLE:
             f5: TextIO = open(CHECKSTYLE_REPORT_PATH, "w+")
 
@@ -264,17 +264,49 @@ def single_java_file(aux_classpath_from_file_path: str, c_tool: bool, tools: Set
             process.wait()
             f5.close()
 
-            calculate_score_checkstyle(get_report_path(t))
+    scores = calculate_scores(tools)
 
-        # generate html report
-        generate_html(tools, scores)
+    # print scores
+    for i in scores:
+        print(i, scores[i])
+
+    # generate html report
+    generate_html(tools, scores)
 
     return
+
+
+def calculate_scores(tools: Set[str]) -> dict:
+    """
+    Calculates the score of every tool in a set of tools
+    :param tools: set of tools
+    :return: dictionary, with keys all the tools of input set, and values their scores
+    """
+    scores: Dict[str: int] = {}
+    for t in tools:
+        if t in (SPOTBUGS_4_0_0_BETA4, SPOTBUGS_4_0_0_BETA3, SPOTBUGS_4_0_0_BETA2, SPOTBUGS_4_0_0_BETA1,
+                 SPOTBUGS_3_1_12, SPOTBUGS_3_1_0_RC7, SPOTBUGS):
+            if t == SPOTBUGS:
+                t = SPOTBUGS_4_0_0_BETA4
+            scores[t] = calculate_score_spotbugs(get_report_path(t))
+        elif t == PMD:
+            scores[t] = calculate_score_pmd(get_report_path(t))
+        elif t == CPD:
+            scores[t] = "no score"
+        elif t == GRAUDIT:
+            scores[t] = calculate_score_graudit(get_report_path(t))
+        elif t == CHECKSTYLE:
+            scores[t] = calculate_score_checkstyle(get_report_path(t))
+
+    return scores
 
 
 def generate_html(tools: Set[str], scores: dict):
     """
     Generates html report
+    :param tools: used tools
+    :param scores: dictionary of all tools and their scores
+    :return:
     """
     with open("report.html", "w+") as f:
         f.write("<!DOCTYPE html>\n<html lang=\"hr\">\n")
@@ -285,6 +317,7 @@ def generate_html(tools: Set[str], scores: dict):
         f.write(body)
         f.write("\n</body>\n")
         f.write("\n</html>\n")
+    return
 
 
 def generate_body(tools: Set[str], scores: dict) -> str:
@@ -311,7 +344,7 @@ def generate_body(tools: Set[str], scores: dict) -> str:
     for t in tools:
         for i in range(0, 2):
             body += "\n<br>"
-        body += "\n<h3 id=\"" + t + "\" style=\"background-color:powderblue;color:red\">" + t + "</h3>\n"
+        body += "\n<h3 id=\"" + t + "\" style=\"background-color:#a2a2f2;color:red\">" + t + "</h3>\n"
 
         with open(get_report_path(t), "r") as file:
             file_text = file.read().replace("\n", "<br>")
@@ -329,12 +362,23 @@ def generate_body(tools: Set[str], scores: dict) -> str:
         row = table.create_row()
         cell1 = row.create_cell(str(key))
         cell2 = row.create_cell(str(scores[key]))
-    with open("table_formatting", "r") as css_formatting:
-        body += "<style>\n" + css_formatting.read() + "</style>\n"
+    body += add_css("table_formatting.css")
 
     body += str(table)
 
     return body
+
+
+def add_css(css_file: str) -> str:
+    """
+    Adds <style> tags, with css_file in between
+    :param css_file: input file of css code
+    :return: <style> + css_file + </style>
+    """
+    s: str = ""
+    with open(css_file, "r") as css_formatting:
+        s += "<style>\n" + css_formatting.read() + "</style>\n"
+    return s
 
 
 def get_report_path(t: str) -> str:
@@ -348,6 +392,8 @@ def get_report_path(t: str) -> str:
     if t == SPOTBUGS_4_0_0_BETA3: return SPOTBUGS_4_0_0_BETA3_REPORT_PATH
     if t == SPOTBUGS_4_0_0_BETA2: return SPOTBUGS_4_0_0_BETA2_REPORT_PATH
     if t == SPOTBUGS_4_0_0_BETA1: return SPOTBUGS_4_0_0_BETA1_REPORT_PATH
+    if t == SPOTBUGS_3_1_12: return SPOTBUGS_3_1_12_REPORT_PATH
+    if t == SPOTBUGS_3_1_0_RC7: return SPOTBUGS_3_1_0_RC7_REPORT_PATH
     if t == CHECKSTYLE: return CHECKSTYLE_REPORT_PATH
     if t == GRAUDIT: return GRAUDIT_REPORT_PATH
     if t == CPD: return CPD_REPORT_PATH
@@ -363,6 +409,7 @@ class HeadBlock(htmlgen.Head):
 
     def generate_children(self):
         yield "Static source code analysis report"
+        yield add_css("document_formatting.css")
 
 
 def calculate_score_spotbugs(file: str) -> int:
