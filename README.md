@@ -61,15 +61,15 @@ usage: python3 script.py [-t] [options] <file>
     However if you're analysing a Java file rather than a whole project, you do not need to provide package argument.
     
     examples of running the script:
-        python3 script.py spotbugs,spotbugs-3.1.0-RC7,pmd,cpd -c /home/userx/Documents/auxclasspathFromFile -p my.app.package /home/userx/Documents/Project
-        python3 script.py graudit home/userx/Documents/Project/app/src/java/main/package/file.java
+        python3 script.py -t spotbugs,pmd,cpd,checkstyle,graudit -c /home/user/Documents/auxclasspathFromFile -p my.package.* /home/user/Documents/project/
+        python3 script.py -t pmd,cpd,checkstyle -c /home/user/Documents/auxclasspathFromFile /home/user/Documents/project/app/src/main/java/my/package/ClassForAnalysis.java
         
     auxClasspathFromFile example:
         /snap/android-studio/81/android-studio/
-        /home/userx/.gradle/
+        /home/user/.gradle/
         
     For help run the script with -h option, and for list of all available tools run with -l.
     
-    16.1.2020.
+    20.1.2020.
     FER (Fakultet elektrotehnike i računarstva), Zagreb
     Antonio Špoljar, mentor Stjepan Groš

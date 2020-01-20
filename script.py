@@ -45,20 +45,28 @@ def main(argv):
         error_message(getopt.GetoptError.msg + "Incorrect arguments. "
                                                "\nFor help read README file or run the script with -h option.", 1)
 
+    # check passed arguments, read them and set up necessary variables (c_tool, p_tool, package, aux_classpath...)
     if TOOLS_ARG not in argv:
+        if HELP_ARG in argv:
+            success_message(HELP)
+            sys.exit(0)
+        elif LIST_ARG in argv:
+            msg = "Available tools are:\n" + ",".join(ALL_TOOLS)
+            success_message(msg)
+            sys.exit(0)
         error_message("Incorrect arguments. No " + TOOLS_ARG +
                       " argument provided.\nFor help read README file or run the script with -h option.", 1)
 
-    # check passed arguments, read them and set up necessary variables (c_tool, p_tool...)
+    # check if there's exactly 1 file/project to analyse
+    if len(args) != 1:
+        error_message("Incorrect arguments. There should be exactly 1 path for analysis provided"
+                      "\nFor help read README file or run the script with -h option.", 1)
+
+    # set project_path
+    project_path = str(args[0])
+
     for opt, arg in opts:
-        if opt == HELP_ARG:
-            error_message(HELP, 1)
-
-        elif opt == LIST_ARG:
-            msg = "Available tools are:" + ",".join(ALL_TOOLS)
-            error_message(msg, 1)
-
-        elif opt == TOOLS_ARG:
+        if opt == TOOLS_ARG:
             tools = arg.split(",")
             for a in tools:
                 if a not in ALL_TOOLS:
@@ -67,20 +75,12 @@ def main(argv):
                 if a in P_TOOLS: p_tool = True
 
         elif opt == CLASSPATH_ARG:
+            if not os.path.isfile(arg):
+                error_message(arg + " is not a valid path for classpath file.", 1)
             aux_classpath_from_file_path = arg
 
         elif opt == PACKAGE_ARG:
             package = arg
-
-    # check if all the parameters are provided
-    if len(args) != 1:
-        error_message("Incorrect arguments. There should be exactly 1 path for analysis provided"
-                      "\nFor help read README file or run the script with -h option.", 1)
-    project_path = args[0]
-    if package is None and p_tool:
-        error_message("There was no -p argument.\nFor help read README file or run the script with -h option.", 1)
-    if aux_classpath_from_file_path is None and c_tool:
-        error_message("There was no -c argument.\nFor help read README file or run the script with -h option.", 1)
 
     # if project_path points to a .java file, run the script in single_java_file mode
     if os.path.isfile(project_path):
@@ -90,7 +90,6 @@ def main(argv):
         directory = False
         single_java_file(aux_classpath_from_file_path, c_tool, tools, project_path, scores)
         return
-
     elif os.path.isdir(project_path):
         # edit project_path
         if not project_path.endswith("/"):
@@ -98,11 +97,18 @@ def main(argv):
         project_path_appsrc = project_path + "app/src/"
         new_package: str = ""
         if package.find("*"):
-            new_package = new_package[0:new_package.__len__()-1]
+            new_package = new_package[0:new_package.__len__() - 1]
         project_path_package = project_path_appsrc + "main/java/ " + new_package.replace(".", "/")
         directory = True
     else:
-        error_message("Given argument is not a filepath.\nFor help read README file or run the script with -h option.")
+        error_message("Given path is not correct.\nFor help read README file or run the script with -h option.")
+
+    # check if all the parameters are provided
+    project_path = args[0]
+    if package is None and p_tool:
+        error_message("There was no -p argument.\nFor help read README file or run the script with -h option.", 1)
+    if aux_classpath_from_file_path is None and c_tool:
+        error_message("There was no -c argument.\nFor help read README file or run the script with -h option.", 1)
 
     # run selected tools
     for t in tools:
@@ -184,7 +190,7 @@ def main(argv):
     # generate html report
     generate_html(tools, scores)
 
-    success_message("\nDone.\n")
+    success_message("Done.")
     return
 
 
@@ -270,22 +276,22 @@ def single_java_file(aux_classpath_from_file_path: str, c_tool: bool, tools: Set
     # generate html report
     generate_html(tools, scores)
 
-    success_message("\nDone.\n")
+    success_message("Done.")
     return
 
 
 def success_message(message: str):
     """
-    Prints success message directly to terminal using "echo"
+    Prints success message
     """
-    subprocess.run(["echo", message])
+    print("\n" + message + "\n")
 
 
 def error_message(message: str, exit_code=1):
     """
-    Prints error message directly to terminal using "echo" and exits with exit_code
+    Prints error message and exits with exit_code
     """
-    subprocess.run(["echo", message])
+    print("\n" + message)
     sys.exit(exit_code)
 
 
