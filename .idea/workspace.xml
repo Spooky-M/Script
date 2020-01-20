@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a1e8598-304b-4e4b-ab32-d38e1d043c43" name="Default Changelist" comment="Popravljeni  za">
+    <list default="true" id="0a1e8598-304b-4e4b-ab32-d38e1d043c43" name="Default Changelist" comment="Zadnji zadnji zadnji commit danas">
+      <change afterPath="$PROJECT_DIR$/reports/example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,13 +154,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579511939706</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Zadnji popravci (nadam se)">
+      <created>1579520546831</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579520546831</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-skripta sada radi za analizu 1 Java datoteke i za analizu cijelog Android studio projekta&#10;-popravljen bug i sada sve verzije spotbugsa rade&#10;-popravljeno puno manjih bugova" />
     <MESSAGE value="Popravljeni bugovi, dodane osnovne provjere argumenata poslanih skripti" />
-    <option name="LAST_COMMIT_MESSAGE" value="Popravljeni bugovi, dodane osnovne provjere argumenata poslanih skripti" />
+    <MESSAGE value="Zadnji popravci (nadam se)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zadnji popravci (nadam se)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="588" y="214" width="800" height="677" key="#Inspections" timestamp="1578490664460">
@@ -173,10 +179,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="373" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1579520246421" />
-    <state x="674" y="358" width="629" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578920405197">
+    <state x="674" y="358" width="629" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579521071653">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="674" y="358" width="629" height="388" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578920405197" />
+    <state x="674" y="358" width="629" height="388" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1579521071653" />
     <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1578493918441">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -185,26 +191,26 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="751" y="258" key="#xdebugger.evaluate/67.27.1853.1053@67.27.1853.1053" timestamp="1578400591588" />
-    <state x="617" y="149" width="1063" height="802" key="CommitChangelistDialog2" timestamp="1579520546127">
+    <state x="617" y="149" width="1063" height="802" key="CommitChangelistDialog2" timestamp="1579521137883">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="617" y="149" width="1063" height="802" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1579520546127" />
-    <state width="1831" height="279" key="GridCell.Tab.0.bottom" timestamp="1579520281713">
+    <state x="617" y="149" width="1063" height="802" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1579521137883" />
+    <state width="1831" height="279" key="GridCell.Tab.0.bottom" timestamp="1579521083474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="279" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579520281713" />
-    <state width="1831" height="279" key="GridCell.Tab.0.center" timestamp="1579520281712">
+    <state width="1831" height="279" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579521083474" />
+    <state width="1831" height="279" key="GridCell.Tab.0.center" timestamp="1579521083474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="279" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579520281712" />
-    <state width="1831" height="279" key="GridCell.Tab.0.left" timestamp="1579520281711">
+    <state width="1831" height="279" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579521083474" />
+    <state width="1831" height="279" key="GridCell.Tab.0.left" timestamp="1579521083474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="279" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579520281711" />
-    <state width="1831" height="279" key="GridCell.Tab.0.right" timestamp="1579520281712">
+    <state width="1831" height="279" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579521083474" />
+    <state width="1831" height="279" key="GridCell.Tab.0.right" timestamp="1579521083474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="279" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579520281712" />
+    <state width="1831" height="279" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579521083474" />
     <state width="1831" height="345" key="GridCell.Tab.1.bottom" timestamp="1579520173033">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
