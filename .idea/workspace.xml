@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a1e8598-304b-4e4b-ab32-d38e1d043c43" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/spotbugs-3.1.0-RC7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/spotbugs-4.0.0-beta4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/spotbugs_3.1.0_RC7" beforeDir="false" afterPath="$PROJECT_DIR$/reports/spotbugs_3.1.0_RC7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/spotbugs_4.0.0_beta4" beforeDir="false" afterPath="$PROJECT_DIR$/reports/spotbugs_4.0.0_beta4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/checkstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/cpd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/graudit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/pmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/spotbugs_3.1.0_RC7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/spotbugs_4.0.0_beta4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table_formatting" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +102,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script.py" />
-      <option name="PARAMETERS" value="-t spotbugs,pmd,cpd,checkstyle,graudit -c $USER_HOME$/Documents/Projekt/reports/Fajlovi/auxclasspathFromFile -p jakhar.aseem.diva.* $USER_HOME$/Documents/Projekt/diva-android/" />
+      <option name="PARAMETERS" value="-t spotbugs,pmd,cpd,checkstyle,graudit -c $USER_HOME$/Documents/Projekt/reports/Fajlovi/auxclasspathFromFile -p jakhar.aseem.diva.* $USER_HOME$/Documents/Projekt/diva-android" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -149,17 +146,29 @@
       <option name="presentableId" value="Default" />
       <updated>1577088270954</updated>
     </task>
+    <task id="LOCAL-00001" summary="-skripta sada radi za analizu 1 Java datoteke i za analizu cijelog Android studio projekta&#10;-popravljen bug i sada sve verzije spotbugsa rade&#10;-popravljeno puno manjih bugova">
+      <created>1579172090402</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579172090402</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="-skripta sada radi za analizu 1 Java datoteke i za analizu cijelog Android studio projekta&#10;-popravljen bug i sada sve verzije spotbugsa rade&#10;-popravljeno puno manjih bugova" />
+    <option name="LAST_COMMIT_MESSAGE" value="-skripta sada radi za analizu 1 Java datoteke i za analizu cijelog Android studio projekta&#10;-popravljen bug i sada sve verzije spotbugsa rade&#10;-popravljeno puno manjih bugova" />
   </component>
   <component name="WindowStateProjectService">
     <state x="588" y="214" width="800" height="677" key="#Inspections" timestamp="1578490664460">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#Inspections/67.27.1853.1053@67.27.1853.1053" timestamp="1578490664460" />
-    <state x="373" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579171454682">
+    <state x="373" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579511080003">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="373" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1579171454682" />
+    <state x="373" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1579511080003" />
     <state x="674" y="358" width="629" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578920405197">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -176,46 +185,54 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="617" y="149" width="1063" height="802" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1579172079250" />
-    <state width="1831" height="345" key="GridCell.Tab.0.bottom" timestamp="1579171483030">
+    <state width="1831" height="279" key="GridCell.Tab.0.bottom" timestamp="1579511243287">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483030" />
-    <state width="1831" height="345" key="GridCell.Tab.0.center" timestamp="1579171483029">
+    <state width="1831" height="279" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579511243287" />
+    <state width="1831" height="279" key="GridCell.Tab.0.center" timestamp="1579511243281">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483029" />
-    <state width="1831" height="345" key="GridCell.Tab.0.left" timestamp="1579171483029">
+    <state width="1831" height="279" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579511243281" />
+    <state width="1831" height="279" key="GridCell.Tab.0.left" timestamp="1579511243280">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483029" />
-    <state width="1831" height="345" key="GridCell.Tab.0.right" timestamp="1579171483030">
+    <state width="1831" height="279" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579511243280" />
+    <state width="1831" height="279" key="GridCell.Tab.0.right" timestamp="1579511243284">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483030" />
-    <state width="1831" height="345" key="GridCell.Tab.1.bottom" timestamp="1579171483030">
+    <state width="1831" height="279" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579511243284" />
+    <state width="1831" height="345" key="GridCell.Tab.1.bottom" timestamp="1579510491070">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483030" />
-    <state width="1831" height="345" key="GridCell.Tab.1.center" timestamp="1579171483030">
+    <state width="1831" height="345" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579510491070" />
+    <state width="1831" height="345" key="GridCell.Tab.1.center" timestamp="1579510491069">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483030" />
-    <state width="1831" height="345" key="GridCell.Tab.1.left" timestamp="1579171483030">
+    <state width="1831" height="345" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579510491069" />
+    <state width="1831" height="345" key="GridCell.Tab.1.left" timestamp="1579510491069">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483030" />
-    <state width="1831" height="345" key="GridCell.Tab.1.right" timestamp="1579171483030">
+    <state width="1831" height="345" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579510491069" />
+    <state width="1831" height="345" key="GridCell.Tab.1.right" timestamp="1579510491069">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1831" height="345" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579171483030" />
+    <state width="1831" height="345" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579510491069" />
     <state x="490" y="186" width="1007" height="731" key="SettingsEditor" timestamp="1579170182034">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="490" y="186" width="1007" height="731" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1579170182034" />
-    <state x="664" y="380" width="656" height="345" key="com.intellij.ide.util.TipDialog" timestamp="1578917377486">
+    <state x="722" y="286" width="591" height="524" key="StructurePopup" timestamp="1579511667594">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="664" y="380" width="656" height="345" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578917377486" />
+    <state x="722" y="286" width="591" height="524" key="StructurePopup/67.27.1853.1053@67.27.1853.1053" timestamp="1579511667594" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1579172094516">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1579172094516" />
+    <state x="664" y="380" width="656" height="345" key="com.intellij.ide.util.TipDialog" timestamp="1579507293687">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="664" y="380" width="656" height="345" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1579507293687" />
     <state x="661" y="156" width="664" height="792" key="find.popup" timestamp="1577109865751">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -224,21 +241,5 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578491466293" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/script.py</url>
-          <line>218</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/script.py</url>
-          <line>77</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

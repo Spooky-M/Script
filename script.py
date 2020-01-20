@@ -17,14 +17,14 @@ def main(argv):
     # tools to use (read from command line)
     tools: Set[str] = set()
 
-    # path of auxiliary classpath file
+    # path of auxiliary classpath file (read from command line)
     aux_classpath_from_file_path: str = ""
 
     # booleans implying the use of tools that require -c (classpath argument) and -p (package argument)
     c_tool: bool = False
     p_tool: bool = False
 
-    # boolean, tells us if the last argument in command line is a directory of a normal Java file
+    # boolean, tells us if the last argument in command line is a directory or a normal Java file
     directory: bool = True
 
     # last argument, path of Android Studio project or a single Java file
@@ -42,61 +42,57 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "hlt:c:p:")
     except getopt.GetoptError:
-        print(getopt.GetoptError.msg + "Incorrect arguments."
-                                       "\nFor help read README file or run the script with -h option")
-        sys.exit(1)
+        error_message(getopt.GetoptError.msg + "Incorrect arguments. "
+                                               "\nFor help read README file or run the script with -h option.", 1)
+
+    if TOOLS_ARG not in argv:
+        error_message("Incorrect arguments. No " + TOOLS_ARG +
+                      " argument provided.\nFor help read README file or run the script with -h option.", 1)
 
     # check passed arguments, read them and set up necessary variables (c_tool, p_tool...)
     for opt, arg in opts:
         if opt == HELP_ARG:
-            if len(opts) != 1:
-                print("Incorrect arguments.\nFor help read README file or run the script with -h option")
-            print(HELP)
-            sys.exit(1)
+            error_message(HELP, 1)
+
         elif opt == LIST_ARG:
-            if len(opts) != 1:
-                print("Incorrect arguments.\nFor help read README file or run the script with -h option")
-                sys.exit(1)
-            print("Available tools are:")
-            print(*ALL_TOOLS, sep=",")
-            sys.exit(1)
+            msg = "Available tools are:" + ",".join(ALL_TOOLS)
+            error_message(msg, 1)
+
         elif opt == TOOLS_ARG:
             tools = arg.split(",")
             for a in tools:
                 if a not in ALL_TOOLS:
-                    print(a + " is not a supported tool.")
-                    sys.exit(1)
+                    error_message(a + " is not a valid tool.", 1)
                 if a in C_TOOLS: c_tool = True
                 if a in P_TOOLS: p_tool = True
 
         elif opt == CLASSPATH_ARG:
             aux_classpath_from_file_path = arg
+
         elif opt == PACKAGE_ARG:
             package = arg
 
     # check if all the parameters are provided
     if len(args) != 1:
-        print("Incorrect arguments.\nFor help read README file or run the script with -h option")
-        sys.exit(1)
+        error_message("Incorrect arguments. There should be exactly 1 path for analysis provided"
+                      "\nFor help read README file or run the script with -h option.", 1)
     project_path = args[0]
     if package is None and p_tool:
-        print("\nThere was no -p argument.\nFor help read README file or run the script with -h option")
-        sys.exit(1)
+        error_message("There was no -p argument.\nFor help read README file or run the script with -h option.", 1)
     if aux_classpath_from_file_path is None and c_tool:
-        print("\nThere was no -c argument.\nFor help read README file or run the script with -h option")
-        sys.exit(1)
+        error_message("There was no -c argument.\nFor help read README file or run the script with -h option.", 1)
 
+    # if project_path points to a .java file, run the script in single_java_file mode
     if os.path.isfile(project_path):
         if not project_path.endswith(".java"):
-            print("Incorrect arguments.\nArgument for analysing can only be java file or a root directory" +
-                  " of Android Studio project")
-            sys.exit(1)
+            error_message("Incorrect arguments.\nArgument for analysing can only be java file or a root directory "
+                          "of Android Studio project.", 1)
         directory = False
         single_java_file(aux_classpath_from_file_path, c_tool, tools, project_path, scores)
         return
-    elif os.path.isdir(project_path):
 
-        # edit project_path, if the path is only a single Java file, go to single_java_file function
+    elif os.path.isdir(project_path):
+        # edit project_path
         if not project_path.endswith("/"):
             project_path += "/"
         project_path_appsrc = project_path + "app/src/"
@@ -106,7 +102,7 @@ def main(argv):
         project_path_package = project_path_appsrc + "main/java/ " + new_package.replace(".", "/")
         directory = True
     else:
-        raise OSError
+        error_message("Given argument is not a filepath.\nFor help read README file or run the script with -h option.")
 
     # run selected tools
     for t in tools:
@@ -188,6 +184,7 @@ def main(argv):
     # generate html report
     generate_html(tools, scores)
 
+    success_message("\nDone.\n")
     return
 
 
@@ -266,14 +263,30 @@ def single_java_file(aux_classpath_from_file_path: str, c_tool: bool, tools: Set
 
     scores = calculate_scores(tools)
 
-    # print scores
+    # print scores internally to stdout, not visible to users
     for i in scores:
         print(i, scores[i])
 
     # generate html report
     generate_html(tools, scores)
 
+    success_message("\nDone.\n")
     return
+
+
+def success_message(message: str):
+    """
+    Prints success message directly to terminal using "echo"
+    """
+    subprocess.run(["echo", message])
+
+
+def error_message(message: str, exit_code=1):
+    """
+    Prints error message directly to terminal using "echo" and exits with exit_code
+    """
+    subprocess.run(["echo", message])
+    sys.exit(exit_code)
 
 
 def calculate_scores(tools: Set[str]) -> dict:
@@ -423,7 +436,7 @@ def calculate_score_spotbugs(file: str) -> int:
     :return: the int score
     """
     if not os.path.isfile(file):
-        raise OSError()
+        raise OSError
 
     score: int = 0
     with open(file, "r") as f:
