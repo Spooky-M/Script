@@ -2,11 +2,11 @@ from typing import Set
 
 with open("README.md", "r") as r:
     HELP: str = r.read()
-HELP_ARG = "-h"
-LIST_ARG = "-l"
-TOOLS_ARG = "-t"
-CLASSPATH_ARG = "-c"
-PACKAGE_ARG = "-p"
+HELP_ARG: str = "-h"
+LIST_ARG: str = "-l"
+TOOLS_ARG: str = "-t"
+CLASSPATH_ARG: str = "-c"
+PACKAGE_ARG: str = "-p"
 
 CHECKSTYLE: str = "checkstyle"
 GRAUDIT: str = "graudit"

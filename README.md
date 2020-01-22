@@ -58,7 +58,7 @@ usage: python3 script.py [-t] [options] <file>
             
     File can be a single Java file, or a root project folder of Android Studio application.
     
-    However if you're analysing a Java file rather than a whole project, you do not need to provide package argument.
+    However if you're analysing a Java file rather than the whole project, you do not need to provide package argument.
     
     examples of running the script:
         python3 script.py -t spotbugs,pmd,cpd,checkstyle,graudit -c /home/user/Documents/auxclasspathFromFile -p my.package.* /home/user/Documents/project/
@@ -70,6 +70,6 @@ usage: python3 script.py [-t] [options] <file>
         
     For help run the script with -h option, and for list of all available tools run with -l.
     
-    20.1.2020.
+    22.1.2020.
     FER (Fakultet elektrotehnike i računarstva), Zagreb
     Antonio Špoljar, mentor Stjepan Groš
