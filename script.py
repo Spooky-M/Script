@@ -80,7 +80,10 @@ def main(argv):
             aux_classpath_from_file_path = arg
 
         elif opt == PACKAGE_ARG:
-            package = arg
+            if not str(arg).endswith(".*"):
+                package = str(arg) + ".*"
+            else:
+                package = arg
 
     # if project_path points to a .java file, run the script in single_java_file mode
     if os.path.isfile(project_path):
